@@ -29,6 +29,7 @@ And every widget is built to be passed and displayed or used inside flutter.
 ### Stateless Widgets
 Stateless widgets are immutable and their states can not change during the runtime of the application.
 **Example:**
+
 ```dart
 import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
@@ -43,6 +44,7 @@ class HomePage extends StatelessWidget {
 
 Stateful widgets are mutable and their states can change during runtime of the program. This means the widget is redrawn based on the state changes.
 **Example:**
+
 ```dart
 import 'package:flutter/material.dart';
 class HomePage extends StatefulWidget {
@@ -58,6 +60,20 @@ class  _HomePageState extends State<HomePage> {
 }
 ```
 
+### Development Environment
+
+For users using Windows
+- Android Studio
+- Android SDK
+- Android Emulator or Phone
+- Flutter Plugin for Android Studio
+- Visual Studio Code and flutter extension [To use VSCode]
+
+For Mac users
+- XCode
+- IOS Simulator
+
+To setup your development environment and download flutter SDK go to [link](https://flutter.dev/docs/get-started/install)
 
 ```markdown
 Syntax highlighted code block
