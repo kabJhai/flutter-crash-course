@@ -75,6 +75,14 @@ For Mac users
 
 To setup your development environment and download flutter SDK click [here](https://flutter.dev/docs/get-started/install)
 
+
+### Create a flutter app
+
+- To create a flutter app open _cmd_ or _terminal_ and type `flutter create applicationName`. 
+- Then type `cd applicationName`
+_applicationName_ is just a template name for you to replace with your preferred application name.
+- Then you can open it with your prefered IDE (Android Studio / VSCode).
+
 ```markdown
 Syntax highlighted code block
 
