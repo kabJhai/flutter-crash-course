@@ -28,7 +28,7 @@ And every widget is built to be passed and displayed or used inside flutter.
 
 ### Stateless Widgets
 Stateless widgets are immutable and their states can not change during the runtime of the application.
-
+**Example:**
 ```dart
 import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
@@ -38,6 +38,27 @@ class HomePage extends StatelessWidget {
  }
 }
 ```
+
+### Stateful Widgets
+
+Stateful widgets are mutable and their states can change during runtime of the program. This means the widget is redrawn based on the state changes.
+**Example:**
+```dart
+import 'package:flutter/material.dart';
+class HomePage extends StatefulWidget {
+ @override
+ _HomePageState createState()=> _HomePageState();
+}
+
+class  _HomePageState extends State<HomePage> {
+ @override
+ Widget build(BuildContext context){
+   return Container();
+ }
+}
+```
+
+
 ```markdown
 Syntax highlighted code block
 
