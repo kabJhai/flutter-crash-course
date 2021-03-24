@@ -26,6 +26,18 @@ Widgets are classified into two
 
 And every widget is built to be passed and displayed or used inside flutter.
 
+### Stateless Widgets
+Stateless widgets are immutable and their states can not change during the runtime of the application.
+
+```dart
+import 'package:flutter/material.dart';
+class HomePage extends StatelessWidget {
+ @override
+ Widget build(BuildContext context){
+    return Container();
+ }
+}
+```
 ```markdown
 Syntax highlighted code block
 
