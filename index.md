@@ -82,6 +82,60 @@ To setup your development environment and download flutter SDK click [here](http
 - Then type `cd applicationName`
 _applicationName_ is just a template name for you to replace with your preferred application name.
 - Then you can open it with your prefered IDE (Android Studio / VSCode).
+- To open it with VSCode type `code .` in your project directory terminal.
+
+
+### Flutter Boilder Plate Description
+
+ After your code is generated you will see multiple folders created by flutter.
+ - **android** folder: This folder contains the native files for android and you can add custom codes to add additional support for libraries or configure the manifest file or other native android configurations.
+ - **ios** folder:  It has the same purpose as android folder.
+ - **build** folder: It contains build codes during debuging and final release of the application.
+ - **lib** folder: It is where you write your dart code.
+ - **pubsec.yaml** file: It contains all the important information about your application including packages, assets application name or build number, package configuration and etc.
+ 
+ 
+ The code below creates a material application that has an app bar with title 'My First Application' and A body 'Hello Meh!'.
+ 
+ ```dart
+ import 'package:flutter/material.dart'
+ 
+ void main()=> runApp(MyApp());
+ 
+ class MyApp extends StatelessWidget{
+   @overrride
+   Widget build(BuildContext context){
+     return MaterialApp(
+       theme : ThemeData(primaryColor: Colors.green[400]),
+       home: Scaffold(
+        appBar: AppBar(title: Text("My First Application")),
+        body: Center(child: Text("Hello Meh!"))
+       )
+     );
+   }
+ }
+ ```
+
+
+### What is Material App?
+
+An application that uses material design.
+
+A convenience widget that wraps a number of widgets that are commonly required for material design applications. It builds upon a WidgetsApp by adding material-design specific functionality, such as AnimatedTheme and GridPaper.
+
+The MaterialApp configures the top-level Navigator to search for routes in the following order:
+
+For the / route, the home property, if non-null, is used.
+
+Otherwise, the routes table is used, if it has an entry for the route.
+
+### What is a Scaffold?
+
+Implements the basic material design visual layout structure.
+
+This class provides APIs for showing drawers and bottom sheets.
+
+To display a persistent bottom sheet, obtain the ScaffoldState for the current BuildContext via Scaffold.of and use the ScaffoldState.showBottomSheet function.
 
 ```markdown
 Syntax highlighted code block
