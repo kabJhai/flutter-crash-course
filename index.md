@@ -1,12 +1,30 @@
-## Welcome to GitHub Pages
+## Flutter Crash Course
 
-You can use the [editor on GitHub](https://github.com/kabJhai/flutter-crash-course/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### What's flutter?
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+It is a Google UI development framework for building natively compiled applications for all devices.
+It is cross platform and extremely fast compared to other frameworks. It doesn't require a javascript brigdge and it uses the native ARM.
 
-### Markdown
+**ARM**: This is a mobile processor architecture first and foremost, and what the majority of phones run now. Qualcomm's Snapdragon, Samsung's Exynos, and MediaTek's mobile chips are all examples of ARM processors.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+
+Flutter uses a programming language called dart. It is an object oriented language and it can run on almost every platforms. The language structure is similar to JavaScript and Java
+
+Everything in flutter is a widget. And since flutter follows material design the name of the widgets is the same as the names used in material design for different widgets.
+- Scaffold
+- AbbBar
+- Container
+- Image
+- Icon
+- ImageButton
+- RaisedButton and etc
+
+Every widget has a high level and low level widget nested inside of it to build the UI.
+Widgets are classified into two
+1. Stateless
+2. Stateful
+
+And every widget is built to be passed and displayed or used inside flutter.
 
 ```markdown
 Syntax highlighted code block
@@ -25,13 +43,3 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kabJhai/flutter-crash-course/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
