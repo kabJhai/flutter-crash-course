@@ -209,7 +209,7 @@ The following code contains the use of added package.
   ```dart
  import 'package:flutter/material.dart';
  import 'package:english_words/english_words.dart';
- 
+ // you need to import the file for the custom widget you created here inorder to use it
  void main()=> runApp(MyApp());
  
  class MyApp extends StatelessWidget{
@@ -225,5 +225,68 @@ The following code contains the use of added package.
        )
      );
    }
+ }
+ ```
+### Adding a List View
+
+### What is a List View?
+ListView is the most commonly used scrolling widget. It displays its children one after another in the scroll direction. In the cross axis, the children are required to fill the ListView.
+
+**List View Example**
+```dart
+ListView(
+  padding: const EdgeInsets.all(8),
+  children: <Widget>[
+    Container(
+      height: 50,
+      color: Colors.amber[600],
+      child: const Center(child: Text('Entry A')),
+    ),
+    Container(
+      height: 50,
+      color: Colors.amber[500],
+      child: const Center(child: Text('Entry B')),
+    ),
+    Container(
+      height: 50,
+      color: Colors.amber[100],
+      child: const Center(child: Text('Entry C')),
+    ),
+  ],
+)
+```
+
+Adding a list view to RandomWords Widget
+
+ ```dart
+ import 'package:flutter/material.dart';
+ import 'package:english_words/english_words.dart';
+ 
+ class RandomWords extends StatefulWidget{
+  @override
+  RandomWordsState createState()=> RandomWordsState();
+ }
+ 
+ class RandomWordsState extends State<RandomWords>{
+  Widget build(BuildContext context){
+   final words = WordPair.random(); 
+   final _randomWordPairs = <WordPair>[];
+   final List<int> colorCodes = <int>[600, 500, 100];
+   _randomWordPairs.addAll(generateWordPairs().take(20));
+   return Scaffold(
+        appBar: AppBar(title: Text("My First Application")),
+        body: ListView.builder(
+              padding: const EdgeInsets.all(8),
+              itemCount: entries.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  height: 50,
+                  color: Colors.amber[colorCodes[index]],
+                  child: Center(child: Text('Entry ${_randomWordPairs[index]}')),
+                );
+              }
+            ),
+       );
+  }
  }
  ```
