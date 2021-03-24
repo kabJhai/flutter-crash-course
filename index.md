@@ -156,21 +156,74 @@ add it under dependencies: in the **pubsec.yaml** file.
 
 - Open the terminal and type `flutter pub get`
 - Then import the package into the file.
+- For this tutorial we are going to use _english_words_ package. Import it and add it by following the previous steps.
 
-```markdown
-Syntax highlighted code block
+The following code contains the use of added package.
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
+ ```dart
+ import 'package:flutter/material.dart';
+ import 'package:english_words/english_words.dart';
+ 
+ void main()=> runApp(MyApp());
+ 
+ class MyApp extends StatelessWidget{
+   @overrride
+   Widget build(BuildContext context){
+   
+   final words = WordPair.random(); 
+     return MaterialApp(
+       theme : ThemeData(primaryColor: Colors.green[400]),
+       home: Scaffold(
+        appBar: AppBar(title: Text("My First Application")),
+        body: Center(child: Text(words.asPascalCase))
+       )
+     );
+   }
+ }
+ ```
+ 
+ ### Creating a custom widget
+ 
+ ```dart
+ import 'package:flutter/material.dart';
+ import 'package:english_words/english_words.dart';
+ 
+ class RandomWords extends StatefulWidget{
+  @override
+  RandomWordsState createState()=> RandomWordsState();
+ }
+ 
+ class RandomWordsState extends State<RandomWords>{
+  Widget build(BuildContext context){
+   return Scaffold(
+        appBar: AppBar(title: Text("My First Application")),
+        body: Center(child: Text(words.asPascalCase))
+       );
+  }
+ }
+ ```
+ 
+ And then integrating it with the prevous code.
+ To integrate or use our custom widget we call the class name in the preferred location we want to display the widget. In this case we want to display it inside the body of the scaffold.
+ 
+  ```dart
+ import 'package:flutter/material.dart';
+ import 'package:english_words/english_words.dart';
+ 
+ void main()=> runApp(MyApp());
+ 
+ class MyApp extends StatelessWidget{
+   @overrride
+   Widget build(BuildContext context){
+   
+   final words = WordPair.random(); 
+     return MaterialApp(
+       theme : ThemeData(primaryColor: Colors.green[400]),
+       home: Scaffold(
+        appBar: AppBar(title: Text("My First Application")),
+        body: RandomWords()
+       )
+     );
+   }
+ }
+ ```
