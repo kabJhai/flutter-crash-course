@@ -73,7 +73,7 @@ For Mac users
 - XCode
 - IOS Simulator
 
-To setup your development environment and download flutter SDK go to [link](https://flutter.dev/docs/get-started/install)
+To setup your development environment and download flutter SDK click [here](https://flutter.dev/docs/get-started/install)
 
 ```markdown
 Syntax highlighted code block
