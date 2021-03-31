@@ -231,12 +231,13 @@ The following code contains the use of added package.
 
 ### Text Widget
 
-As the name implies text widget is used to display text on the screen. The text widget is accessible via **Text** constructor. 
+As the name implies text widget is used to display text on the screen. The text widget is accessible via **Text** constructor. When you provide only a string argument to the widget the color and style will be inherited from the applications theme.
+Example: 
 ```dart
 Text("Hello Ambasha");
 ```
 The required parameter for Text widget is a string. To customize the text widget you can use the **TextStyle** class. And google fonts can be used to customize the font. You can also import custom fonts.
-
+Example:
 ```dart
 Text(
   "Hello Ambasha",
@@ -250,6 +251,115 @@ Text(
 );
 ```
 To add google fonts to your flutter project, you should install **google_fonts** package in pubsec.yams file.
+
+### Row
+
+This widget is used to lineup or display widget in the horizontal axis side by side. By default Row distributes the child widgets over the available space. But you can customize both the space it uses and the alignment of the child widgets.
+
+```dart
+Row(
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+
+In the default configuration the alignment of the child widget is is at the start or the left edge. But you can customize it by passing different axis alignment.
+
+To place the items at the center:
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+This gathers the child widgets at the center of the Row.
+
+To place the items at the start or the left edge:
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.start,
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+This gathers the child widgets at the beginning or left edge of the Row.
+
+
+To place the items at the end or the right edge:
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.end,
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+This gathers the child widgets at the end or right edge of the Row.
+
+
+To give equal distance to the child widgets and margin to the child widgets found at the edge:
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+This adds a an evenly distributed space between the children and gives margin with the same distance from both edges.
+
+
+To give equal distance to the child widgets and  without a margin to the child widgets found at the edge:
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+This adds a an evenly distributed space between the children.
+
+To handle the space covered by the row we use the **mainAxisSize** parameter.
+It is used to handle the size of the row and how it utilizes the available space.
+
+- To make the row wrap the children based on the size of the children.
+```dart
+Row(
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+- To make the row cover the available space by the parent widget or maybe a screen size.
+```dart
+Row(
+  mainAxisSize: MainAxisSize.max,
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+
+
 
 
 ### Adding a List View
