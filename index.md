@@ -501,3 +501,60 @@ As the name implies containers are used to cover and contain other widgets and c
 
 ![container](https://kabjhai.github.io/flutter-crash-course/container.png)
 
+```dart
+
+Container(
+  height: 80,
+  width: 260,
+  color: Colors.blueGrey,
+  alignment: Alignment.center,
+  transform: Matrix4.rotationZ(-0.25),
+  child: const Text(
+    "Containers!",
+    style: TextStyle(
+      color: Colors.white,
+      fontSize: 25
+    )
+  )
+);
+```
+- To obtain the rotation we used the **transform** parameter and passed the **Matrix4.rotationZ(-0.25)**. **Matrix4** contains different transformation functions that can be applied to different widgets. **rotationZ(-0.25)** this method specifies the axis of rotation which is Z axis and degree of rotation in which the container is rotated.
+
+To add shadow to the container, give it a border radius or add gradient as a background we change the **decoration** property and use **BoxDecoration** constructor.
+
+**BoxDecoration:**
+- The BoxDecoration constructor has multiple properties some of them are:
+    - **shape:** This is used to determine the shape of the container. It is default to a rectangle and can be changed to any shape. You have to pass **BoxShape**.
+                  For instance, if you want it to be a circle you have to pass **BoxShape.circle**
+    - **boxShadow:** This is used to determine the shadow color, spreading radius, blur radius and offset. It accepts a **BoxShadow** as an argument.
+    - **gradient:** This is used to determine the mix of colors used to form a gradient, the direction of a gradient and ,where it begins and ends. It accepts a **LinearGradient**,**RadialGradient**,**SweepGradient** as an argument.
+    - **LinearGradient:** a progressive transition of two or more colors along a straight line;
+    - **RadialGradient:** a progressive transition of two or more colors radiating around a central.
+    - **SweepGradient:** a progressive transition of two or more colors with a circular sweep on a central point.
+```dart
+Container(
+  child: const Center(...),
+    width: 100,
+    height: 100,
+    decoration: const BoxDecoration(
+      shape: BoxShape.circle,
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey,
+          spreadRadius: 5,
+          blurRadius: 7,
+          offset: Offset(0, 3),
+        ),
+      ],
+      gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Color.fromARGB(...),
+          Color.fromARGB(...)
+        ],
+    )
+  ),
+);
+```
+
