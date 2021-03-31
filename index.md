@@ -227,6 +227,31 @@ The following code contains the use of added package.
    }
  }
  ```
+## Basic Flutter Widgets
+
+### Text Widget
+
+As the name implies text widget is used to display text on the screen. The text widget is accessible via **Text** constructor. 
+```dart
+Text("Hello Ambasha");
+```
+The required parameter for Text widget is a string. To customize the text widget you can use the **TextStyle** class. And google fonts can be used to customize the font. You can also import custom fonts.
+
+```dart
+Text(
+  "Hello Ambasha",
+  style: GoogleFonts.openSans(
+    textStyle: TextStyle(
+      color:Colors.green,
+      fontSize: 24,
+
+    )
+  )
+);
+```
+To add google fonts to your flutter project, you should install **google_fonts** package in pubsec.yams file.
+
+
 ### Adding a List View
 
 ### What is a List View?
