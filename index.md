@@ -348,7 +348,7 @@ Row(
   ],
 ),
 ```
-- To make the row cover the available space by the parent widget or maybe a screen size.
+- To make the row cover the available horizontal space based on the parent widget or maybe a screen size.
 ```dart
 Row(
   mainAxisSize: MainAxisSize.max,
@@ -359,7 +359,97 @@ Row(
 ),
 ```
 
+### Column
 
+This widget is used to lineup or display widget in the vertical axis. The column has the same functionality as the row except it does it in an opposite direction. Column tries to cover the available vertical space while a row tries to cover available horizontal space.
+
+```dart
+Column(
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+
+
+- To make the column wrap the children based on the size of the children.
+```dart
+Column(
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+- To make the column cover the available vertical space based on the parent widget or maybe a screen size.
+```dart
+Column(
+  mainAxisSize: MainAxisSize.max,
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+
+To place the items at the start or the top edge:
+
+```dart
+Column(
+  mainAxisAlignment: MainAxisAlignment.start,
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+This gathers the child widgets at the beginning or top edge of the Column.
+
+
+To place the items at the end or the bottom edge:
+
+```dart
+Column(
+  mainAxisAlignment: MainAxisAlignment.end,
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+This gathers the child widgets at the end or bottom edge of the Column.
+
+
+To give equal distance to the child widgets and margin to the child widgets found at the edge:
+
+```dart
+Column(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+This adds a an evenly distributed space between the children and gives margin with the same distance from both edges.
+
+
+To give equal distance to the child widgets and  without a margin to the child widgets found at the edge:
+
+```dart
+Column(
+  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  children: [
+    Text("Hello"),
+    Text("Ambasha!"),
+  ],
+),
+```
+This adds a an evenly distributed space between the children.
+
+**Note:** Both Row and Column don't have a scroll behavior. This means if the size of child widgets is greater than the available space an error will be raised.
 
 
 ### Adding a List View
