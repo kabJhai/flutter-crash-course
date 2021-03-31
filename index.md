@@ -452,66 +452,32 @@ This adds a an evenly distributed space between the children.
 **Note:** Both Row and Column don't have a scroll behavior. This means if the size of child widgets is greater than the available space an error will be raised.
 
 
-### Adding a List View
-
 ### What is a List View?
-ListView is the most commonly used scrolling widget. It displays its children one after another in the scroll direction. In the cross axis, the children are required to fill the ListView.
+ListView is the most commonly used scrolling widget. It displays its children one after another in the scroll direction. In the cross axis, the children are required to fill the ListView. A list view is like a column having a scroll behavior.
+- A list view is used when we are certain that the child widgets my be bigger than the screen size.
 
-**List View Example**
 ```dart
 ListView(
-  padding: const EdgeInsets.all(8),
-  children: <Widget>[
-    Container(
-      height: 50,
-      color: Colors.amber[600],
-      child: const Center(child: Text('Entry A')),
-    ),
-    Container(
-      height: 50,
-      color: Colors.amber[500],
-      child: const Center(child: Text('Entry B')),
-    ),
-    Container(
-      height: 50,
-      color: Colors.amber[100],
-      child: const Center(child: Text('Entry C')),
-    ),
-  ],
-)
+  children: const [
+    Text("Hello"),
+    Text("Ambasha!"),
+    ],
+),
+```
+The default scrolling direction is the vertical axis. But it can also be changed to the horizontal axis. This can be done by using the **scrollDirection** parameter.
+
+```dart
+ListView(
+  scrollDirection: Axis.horizontal,
+  children: const [
+    Text("Hello"),
+    Text("Ambasha!"),
+    ],
+),
 ```
 
-Adding a list view to RandomWords Widget
+The children of a list view can be added in two ways:
+1. By declaring or passing the widgets directly.
+    - As seen on the example above.
+2. By using list view builder instead.
 
- ```dart
- import 'package:flutter/material.dart';
- import 'package:english_words/english_words.dart';
- 
- class RandomWords extends StatefulWidget{
-  @override
-  RandomWordsState createState()=> RandomWordsState();
- }
- 
- class RandomWordsState extends State<RandomWords>{
-  Widget build(BuildContext context){
-   final words = WordPair.random(); 
-   final _randomWordPairs = <WordPair>[];
-   final List<int> colorCodes = <int>[600, 500, 100];
-   _randomWordPairs.addAll(generateWordPairs().take(20));
-   return Scaffold(
-        appBar: AppBar(title: Text("My First Application")),
-        body: ListView.builder(
-              padding: const EdgeInsets.all(8),
-              itemCount: entries.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  height: 50,
-                  color: Colors.amber[colorCodes[index]],
-                  child: Center(child: Text('Entry ${_randomWordPairs[index]}')),
-                );
-              }
-            ),
-       );
-  }
- }
- ```
