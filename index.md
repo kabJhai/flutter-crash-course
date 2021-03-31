@@ -528,9 +528,8 @@ To add shadow to the container, give it a border radius or add gradient as a bac
                   For instance, if you want it to be a circle you have to pass **BoxShape.circle**
     - **boxShadow:** This is used to determine the shadow color, spreading radius, blur radius and offset. It accepts a **BoxShadow** as an argument.
     - **gradient:** This is used to determine the mix of colors used to form a gradient, the direction of a gradient and ,where it begins and ends. It accepts a **LinearGradient**,**RadialGradient**,**SweepGradient** as an argument.
-    - **LinearGradient:** a progressive transition of two or more colors along a straight line;
-    - **RadialGradient:** a progressive transition of two or more colors radiating around a central.
-    - **SweepGradient:** a progressive transition of two or more colors with a circular sweep on a central point.
+    - **LinearGradient:** a progressive transition of two or more colors along a straight line.
+
 ```dart
 Container(
   child: const Center(...),
@@ -550,10 +549,75 @@ Container(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: [
-          Color.fromARGB(...),
-          Color.fromARGB(...)
+            Color(0xffee0000),
+            Color(0xffeeee00)
         ],
     )
+  ),
+);
+```
+
+   - **RadialGradient:** a progressive transition of two or more colors radiating around a central.
+
+```dart
+Container(
+  child: const Center(...),
+    width: 100,
+    height: 100,
+    decoration: const BoxDecoration(
+      shape: BoxShape.circle,
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey,
+          spreadRadius: 5,
+          blurRadius: 7,
+          offset: Offset(0, 3),
+        ),
+      ],
+      gradient: RadialGradient(
+    center: const Alignment(0.7, -0.6), // near the top right
+    radius: 0.2,
+    colors: [
+      const Color(0xFFFFFF00), // yellow sun
+      const Color(0xFF0099FF), // blue sky
+    ],
+    stops: [0.4, 1.0],
+  )
+  ),
+);
+```
+
+   - **SweepGradient:** a progressive transition of two or more colors with a circular sweep on a central point.
+
+
+```dart
+Container(
+  child: const Center(...),
+    width: 100,
+    height: 100,
+    decoration: const BoxDecoration(
+      shape: BoxShape.circle,
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey,
+          spreadRadius: 5,
+          blurRadius: 7,
+          offset: Offset(0, 3),
+        ),
+      ],
+      gradient: SweepGradient(
+      center: FractionalOffset.center,
+      startAngle: 0.0,
+      endAngle: math.pi * 2,
+      colors: const <Color>[
+        Color(0xFF4285F4), // blue
+        Color(0xFF34A853), // green
+        Color(0xFFFBBC05), // yellow
+        Color(0xFFEA4335), // red
+        Color(0xFF4285F4), // blue again to seamlessly transition to the start
+      ],
+      stops: const <double>[0.0, 0.25, 0.5, 0.75, 1.0],
+    ),
   ),
 );
 ```
