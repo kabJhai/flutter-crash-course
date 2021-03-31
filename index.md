@@ -452,7 +452,8 @@ This adds a an evenly distributed space between the children.
 **Note:** Both Row and Column don't have a scroll behavior. This means if the size of child widgets is greater than the available space an error will be raised.
 
 
-### What is a List View?
+### List View
+
 ListView is the most commonly used scrolling widget. It displays its children one after another in the scroll direction. In the cross axis, the children are required to fill the ListView. A list view is like a column having a scroll behavior.
 - A list view is used when we are certain that the child widgets my be bigger than the screen size.
 
@@ -480,4 +481,18 @@ The children of a list view can be added in two ways:
 1. By declaring or passing the widgets directly.
     - As seen on the example above.
 2. By using list view builder instead.
+
+List view builder is used to create children based on an existing collection. It is recommended to use list view builder rather than filling the children manually.
+
+```dart
+
+final customList = List<int>.generate(100,(i)=>"Item $i");
+
+ListView.builder(
+  itemCount: customList.length,
+  itemBuilder: (context,index){
+    return Text("${customList[index]}");
+  }
+),
+```
 
