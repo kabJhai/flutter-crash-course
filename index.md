@@ -622,3 +622,38 @@ Container(
 );
 ```
 
+### Stack and Positioned
+
+If you want to overlap widgets or freely position your widgets at your desired position you can use **Stack** and **Positioned** widgets respectively.
+Since, a stack doesn't constrain size if the widgets are out of the screens bound an overflow error will not appear.
+
+```dart
+Stack(
+  children: [
+    Container(
+      width: 40,
+      height: 40,
+      decoration:  BoxDecoration(
+        color: Colors.red
+      )
+    ),
+     Text("Hello Ambasha!"),
+  ]
+)
+```
+The code above will overlap the text widget and the container. Wich makes the container the background to the text. 
+**Note:** The order in which items are stacked depends on the order in which they are added. The children placed at the bottom are the once to be on top. Assuming that the order in which the items are added in the list from top to bottom the stack widget has the same property with stack datastructure.
+
+If you want to move the children to your desired position you have to use **Positioned** widget.
+Positioned constructor has top and left parameters. The top parameter is used to add margin to the item from the top available position on the screen. And left gives margin to the widget from the left. Giving it negative margin from the top or left moves the widget out of the screen.
+```dart
+Stack(
+  children: [
+    Positioned(
+      top: 30,
+      left: 75
+      child: Text("Hello Ambaashaa"),
+    )
+  ]
+)
+```
