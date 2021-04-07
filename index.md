@@ -884,7 +884,7 @@ The most commonly used buttons are:
 3. Button Bar : it is a horizontal container of buttons to display multiple options to choose from. It has the same property as the **Row** widget.
   ![buttonBar](https://kabjhai.github.io/flutter-crash-course/buttonBar.png)
 4. Icon Button : it is a button with an icon rather than a string.
-  ![buttonBar](https://kabjhai.github.io/flutter-crash-course/buttonBar.png)
+  ![iconButton](https://kabjhai.github.io/flutter-crash-course/iconButton.png)
 5. Image Button :  it is a button with an image rather than a string.
 
 ```dart
