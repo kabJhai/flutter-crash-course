@@ -802,7 +802,7 @@ Scaffold(
 ```
 
 - To display icons side by side with texts we can use a widget called **ListTile**.
-- ***ListTile** constructor takes three arguments:
+- **ListTile** constructor takes three arguments:
       - leading: This takes an icon as a value and displays the icon at the left side
       - title: This takes a text and used to display the text explaining the menu
       - onTap:  This is where we write the code to define what happens when the user clicks on it
@@ -872,4 +872,13 @@ Scaffold(
     floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
 )
 ```
+### Buttons
 
+Buttons are widgets that are used to execute an action when a click event or tap event occurs.
+Flutter has four types of buttons predifined and a customizable Material and Image buttons. 
+The most commonly used buttons are:
+1. Raised Button : a rectangular android button with a default elevation and shadow. 
+2. Flat Button : the same are raised button with no elevation and shadow.
+3. Button Bar : it is a horizontal container of buttons to display multiple options to choose from.
+4. Icon Button : it is a button with an icon rather than a string.
+5. Image Button :  it is a button with an image rather than a string.
