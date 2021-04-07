@@ -657,3 +657,58 @@ Stack(
   ]
 )
 ```
+
+### When should I use stateless and statefull widget?
+
+- If you have variables which have to be declared final or constant and the UI doesn't have to change when the value of a variable changes **Stateless Widgets** should be used.
+```dart
+class MyName extends StatelessWidget {
+final String name;
+const MyName(this.name);
+  @override
+  Widget build(BuildContext context){
+    return Text(name);
+  }
+}
+```
+In the example above the value of the variable name doesn't change. For that reason a final variable is used and since the value of the class can't be changed the constructor is also declared constant.
+
+- If the state of the user interface depends on the values of a variable or a value fetched from a remote source a **Statefull Widget** should be used.
+      - When you create a statefull widget a create state method should be called and it should construct the state class. And the state class should be *package private*.
+      
+       ```dart
+       class Counter extends StatefulWidget {
+          const Counter();
+          @override
+          _CounterState createState() => _CounterState();
+      }
+      ```
+- When you have a variable that can affect the user interface or the user interface has to change with, it should not be final or constant.
+- The state variables should be initialized and it is recommended if the variables are package private.
+- **setState()** method is used to make the change to the state and for the UI to be rebuilt without affecting the satate.
+
+       ```dart
+       class Counter extends StatefulWidget {
+          const Counter();
+          @override
+          _CounterState createState() => _CounterState();
+      }
+
+      class _CounterState extends State<Counter> {
+        int _counter = 0;
+        @override
+        Widget build(BuildContext context) {
+          return Column(
+            children: [
+              Text("$_counter"),
+              IconButton(
+                child: Icon(Icons.add),
+                onPressed: () {
+                  setState(() => _counter++);
+                }
+              ),
+            ],
+          );
+        }
+      }
+      ```
