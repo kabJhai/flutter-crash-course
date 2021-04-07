@@ -878,8 +878,9 @@ Buttons are widgets that are used to execute an action when a click event or tap
 Flutter has four types of buttons predifined and a customizable Material and Image buttons. 
 The most commonly used buttons are:
 1. Raised Button : a rectangular android button with a default elevation and shadow. 
-![raisedButton](https://kabjhai.github.io/flutter-crash-course/raisedButton.png)
+  ![raisedButton](https://kabjhai.github.io/flutter-crash-course/raisedButton.png)
 2. Flat Button : the same are raised button with no elevation and shadow.
+  ![flatButton](https://kabjhai.github.io/flutter-crash-course/flatButton.png)
 3. Button Bar : it is a horizontal container of buttons to display multiple options to choose from. It has the same property as the **Row** widget.
 4. Icon Button : it is a button with an icon rather than a string.
 5. Image Button :  it is a button with an image rather than a string.
