@@ -813,18 +813,18 @@ Scaffold(
     drawer: Drawer(
     child: ListView(
         ListTile(
-        leading: const Icon(Icons.people),
-        title: const Text("Item 1"),
+        leading: Icon(Icons.people),
+        title: Text("Item 1"),
         onTap: () {},
         )  
         ListTile(
-        leading: const Icon(Icons.people),
-        title: const Text("Item 2"),
+        leading: Icon(Icons.people),
+        title: Text("Item 2"),
         onTap: () {},
         )
         ListTile(
-        leading: const Icon(Icons.people),
-        title: const Text("Item 3"),
+        leading: Icon(Icons.people),
+        title: Text("Item 3"),
         onTap: () {},
         )
       )
@@ -848,7 +848,7 @@ To add a floatingActionButton to a scaffold you have to pass **FloatingActionBut
 ```dart
 Scaffold(
     floatingActionButton: FloatingActionButton(
-      child: const Icon(Icons.add),
+      child: Icon(Icons.add),
       backgroundColor: Colors.red,
       onPressed: () {
         print("FAB Pressed");
@@ -863,7 +863,7 @@ Scaffold(
 ```dart
 Scaffold(
     floatingActionButton: FloatingActionButton(
-      child: const Icon(Icons.add),
+      child: Icon(Icons.add),
       backgroundColor: Colors.red,
       onPressed: () {
         print("FAB Pressed");
@@ -878,7 +878,24 @@ Buttons are widgets that are used to execute an action when a click event or tap
 Flutter has four types of buttons predifined and a customizable Material and Image buttons. 
 The most commonly used buttons are:
 1. Raised Button : a rectangular android button with a default elevation and shadow. 
+
 2. Flat Button : the same are raised button with no elevation and shadow.
-3. Button Bar : it is a horizontal container of buttons to display multiple options to choose from.
+3. Button Bar : it is a horizontal container of buttons to display multiple options to choose from. It has the same property as the **Row** widget.
 4. Icon Button : it is a button with an icon rather than a string.
 5. Image Button :  it is a button with an image rather than a string.
+
+```dart
+  ButtonBar(
+    alignment: MainAxisAlignment.center,
+    children: [
+      FlatButton(
+        onPressed: () {},
+        child: Text("No")
+      ),
+      RaisedButton(
+        onPressed: () {},
+        child: Text("YES")
+      ),
+    ],
+  );
+```
