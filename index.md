@@ -886,6 +886,7 @@ The most commonly used buttons are:
 4. Icon Button : it is a button with an icon rather than a string.
   ![iconButton](https://kabjhai.github.io/flutter-crash-course/iconButton.png)
 5. Image Button :  it is a button with an image rather than a string.
+  ![imageButton](https://kabjhai.github.io/flutter-crash-course/imageButton.png)
 
 ```dart
   ButtonBar(
