@@ -834,3 +834,42 @@ Scaffold(
 
 - To change the direction in which the drawer opens use **endDrawer** instead of **drawer**.
 
+### Floating Action Button
+
+Also known as **FAB**, it is a special rounded button with elevation that usually appears on the bottom-right corner of the screen. 
+To add a floatingActionButton to a scaffold you have to pass **FloatingActionButton** constructor to the **floatingActionButton** argument.
+
+- FloatingActionButton takes three major arguments 
+    - **child:** takes an icon widget as an argument,
+    - **backgroundColor:** takes color as an argument,
+    - **onPressed:**  Takes what to do when the button is clicked.
+
+
+```dart
+Scaffold(
+    floatingActionButton: FloatingActionButton(
+      child: const Icon(Icons.add),
+      backgroundColor: Colors.red,
+      onPressed: () {
+        print("FAB Pressed");
+      },
+    ),
+)
+```
+
+- You can change the location of the FAB by passing **FloatingActionButtonLocation** value to **floatingActionButtonLocation** argument in the scaffold.
+
+
+```dart
+Scaffold(
+    floatingActionButton: FloatingActionButton(
+      child: const Icon(Icons.add),
+      backgroundColor: Colors.red,
+      onPressed: () {
+        print("FAB Pressed");
+      },
+    ),
+    floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+)
+```
+
