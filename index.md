@@ -459,7 +459,7 @@ ListView is the most commonly used scrolling widget. It displays its children on
 
 ```dart
 ListView(
-  children: const [
+  children: [
     Text("Hello"),
     Text("Ambasha!"),
     ],
@@ -470,7 +470,7 @@ The default scrolling direction is the vertical axis. But it can also be changed
 ```dart
 ListView(
   scrollDirection: Axis.horizontal,
-  children: const [
+  children: [
     Text("Hello"),
     Text("Ambasha!"),
     ],
@@ -509,7 +509,7 @@ Container(
   color: Colors.blueGrey,
   alignment: Alignment.center,
   transform: Matrix4.rotationZ(-0.25),
-  child: const Text(
+  child: Text(
     "Containers!",
     style: TextStyle(
       color: Colors.white,
@@ -532,10 +532,10 @@ To add shadow to the container, give it a border radius or add gradient as a bac
 
 ```dart
 Container(
-  child: const Center(...),
+  child: Center(...),
     width: 100,
     height: 100,
-    decoration: const BoxDecoration(
+    decoration: BoxDecoration(
       shape: BoxShape.circle,
       boxShadow: [
         BoxShadow(
@@ -561,10 +561,10 @@ Container(
 
 ```dart
 Container(
-  child: const Center(...),
+  child: Center(...),
     width: 100,
     height: 100,
-    decoration: const BoxDecoration(
+    decoration: BoxDecoration(
       shape: BoxShape.circle,
       boxShadow: [
         BoxShadow(
@@ -575,11 +575,11 @@ Container(
         ),
       ],
       gradient: RadialGradient(
-    center: const Alignment(0.7, -0.6), // near the top right
+    center: Alignment(0.7, -0.6), // near the top right
     radius: 0.2,
     colors: [
-      const Color(0xFFFFFF00), // yellow sun
-      const Color(0xFF0099FF), // blue sky
+      Color(0xFFFFFF00), // yellow sun
+      Color(0xFF0099FF), // blue sky
     ],
     stops: [0.4, 1.0],
   )
@@ -592,10 +592,10 @@ Container(
 
 ```dart
 Container(
-  child: const Center(...),
+  child: Center(...),
     width: 100,
     height: 100,
-    decoration: const BoxDecoration(
+    decoration: BoxDecoration(
       shape: BoxShape.circle,
       boxShadow: [
         BoxShadow(
@@ -609,14 +609,14 @@ Container(
       center: FractionalOffset.center,
       startAngle: 0.0,
       endAngle: math.pi * 2,
-      colors: const <Color>[
+      colors: <Color>[
         Color(0xFF4285F4), // blue
         Color(0xFF34A853), // green
         Color(0xFFFBBC05), // yellow
         Color(0xFFEA4335), // red
         Color(0xFF4285F4), // blue again to seamlessly transition to the start
       ],
-      stops: const <double>[0.0, 0.25, 0.5, 0.75, 1.0],
+      stops: <double>[0.0, 0.25, 0.5, 0.75, 1.0],
     ),
   ),
 );
@@ -664,7 +664,7 @@ Stack(
 ```dart
 class MyName extends StatelessWidget {
 final String name;
-const MyName(this.name);
+MyName(this.name);
   @override
   Widget build(BuildContext context){
     return Text(name);
@@ -678,7 +678,7 @@ In the example above the value of the variable name doesn't change. For that rea
       
        ```dart
        class Counter extends StatefulWidget {
-          const Counter();
+          Counter();
           @override
           _CounterState createState() => _CounterState();
       }
@@ -689,7 +689,7 @@ In the example above the value of the variable name doesn't change. For that rea
 
        ```dart
        class Counter extends StatefulWidget {
-          const Counter();
+          Counter();
           @override
           _CounterState createState() => _CounterState();
       }
@@ -712,3 +712,78 @@ In the example above the value of the variable name doesn't change. For that rea
         }
       }
       ```
+## Building UIs in Flutter
+
+Even though flutter gives you the opportunity to design widgets from scratch it also gives you pre-built widgets that you can use to build a user interface.
+There are two predifined design UIs in flutter:
+
+  1. Material design
+  2. Cupertino design 
+
+### Material Design
+
+Flutter gives you a series of pre-built components to create apps embracing the typical Android design, also known as **Material Design**.
+There are two ways to create material layouts:
+1. Building the layout from scratch
+2. Importing the **material.dart** package
+
+### Scaffold
+
+As seen on the previous section scaffold gives a material layout with multiple widgets support.
+Some of the widgets that can be integrated in scaffold are:
+1. App Bar
+2. Drawer
+3. Floating Action Button
+
+
+### App Bar
+
+An AppBar is the equivalent of **Toolbar** class in Java/Kotlin. It is always displayed at the top of the screen. The AppBar is where menu's, drawers and icon buttons can be added to fulfill different requirements or the application.
+
+Main components of an AppBar are Drawer Button, App title, Action buttons, back button to return to previous page.
+
+![app bar](https://kabjhai.github.io/flutter-crash-course/appBar.png)
+
+- If we have multiple views when developing an application the users should have the option to return to the previous view or page. To give that option to the user the value of **automaticallyImplyLeading** inside an app bar constructor should be set to **true**.
+
+```dart
+Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: true,
+          title: Text("My First Application"),
+        ),
+)
+```
+
+- To add additional buttons on the app bar for displaying menu or doing a predifined action the value of **actions** should be filled with list of widgets *(It is preferred if Icon Buttons are passed in the actions argument)*. 
+
+- **IconButton:** Icon Buttons are material widgets that display icon to identify the button. Icon buttons contain **icon** and **onPressed** as arguments to accept the Icon to display and the action to take or perform when the button is clicked.
+```dart
+Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: true,
+          title: Text("My First Application"),
+          actions:[
+            IconButton(
+              icon: Icon(Icons.info),
+              onPressed: (){
+                print("Info button pressed")
+              }
+            )
+          ]
+        ),
+)
+```
+
+### Drawer 
+
+A drawer is a container that horizontally slides from a side of the screen to show a series of items. When a drawer is added to a Scaffold a menu icon is automatically added to the appBar to open the drawer.
+
+In scaffold there are two arguments that can be used to add a drawer.
+1. drawer : This makes the drawer open from left to right.
+2. endDrawer : This makes the drawer open from right to left.
+
+- Both of the arguments accept a widget as a parameter. We can create a drawer by using a Drawer constructor or any other container widgets that we can add child to. For this section we will use a drawer constructor to create a drawer.
+
+- A drawer has a child argument that accepts widgets.
+- To display icons side by side with texts we can use a widget called **ListTile**.
