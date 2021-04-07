@@ -758,6 +758,7 @@ Scaffold(
 - To add additional buttons on the app bar for displaying menu or doing a predifined action the value of **actions** should be filled with list of widgets *(It is preferred if Icon Buttons are passed in the actions argument)*. 
 
 - **IconButton:** Icon Buttons are material widgets that display icon to identify the button. Icon buttons contain **icon** and **onPressed** as arguments to accept the Icon to display and the action to take or perform when the button is clicked.
+
 ```dart
 Scaffold(
         appBar: AppBar(
@@ -786,4 +787,50 @@ In scaffold there are two arguments that can be used to add a drawer.
 - Both of the arguments accept a widget as a parameter. We can create a drawer by using a Drawer constructor or any other container widgets that we can add child to. For this section we will use a drawer constructor to create a drawer.
 
 - A drawer has a child argument that accepts widgets.
+
+```dart
+Scaffold(
+    drawer: Drawer(
+    child: ListView(
+        Text("Item 1"),
+        Text("Item 2"),
+        Text("Item 3"),
+        Text("Item 4"),
+      )
+    ),
+)
+```
+
 - To display icons side by side with texts we can use a widget called **ListTile**.
+- ***ListTile** constructor takes three arguments:
+      - leading: This takes an icon as a value and displays the icon at the left side
+      - title: This takes a text and used to display the text explaining the menu
+      - onTap:  This is where we write the code to define what happens when the user clicks on it
+
+
+```dart
+Scaffold(
+    drawer: Drawer(
+    child: ListView(
+        ListTile(
+        leading: const Icon(Icons.people),
+        title: const Text("Item 1"),
+        onTap: () {},
+        )  
+        ListTile(
+        leading: const Icon(Icons.people),
+        title: const Text("Item 2"),
+        onTap: () {},
+        )
+        ListTile(
+        leading: const Icon(Icons.people),
+        title: const Text("Item 3"),
+        onTap: () {},
+        )
+      )
+    ),
+)
+```
+
+- To change the direction in which the drawer opens use **endDrawer** instead of **drawer**.
+
